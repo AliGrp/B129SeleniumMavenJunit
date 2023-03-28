@@ -43,6 +43,7 @@ public class C02_MavenClassWork {
         driver.findElement(By.xpath("//input[@id='pay_saved_payees']")).click();
 //        10.“The payment was successfully submitted.” mesajinin ciktigini
 //        control edin
+
         //span[text()='The payment was successfully submitted.']
         WebElement mesaj=driver.findElement(By.xpath("//span[text()='The payment was successfully submitted.']"));
         if(mesaj.isDisplayed()){
