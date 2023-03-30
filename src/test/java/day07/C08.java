@@ -23,7 +23,6 @@ public class C08 extends C08_Parent {
 
     @Test
     public void test01(){
-        driver.get("https://www.facebook.com");
         driver.findElement(By.xpath("//*[@class='_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']")).click();
         WebElement ad =driver.findElement(By.xpath("//input[@name='firstname']"));
         ad.sendKeys("ali", Keys.ENTER);
@@ -37,7 +36,6 @@ public class C08 extends C08_Parent {
     }
     @Test
     public void test02(){
-        driver.get("https://www.facebook.com");
         driver.findElement(By.xpath("//*[@class='_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']")).click();
         WebElement ad =driver.findElement(By.xpath("//input[@name='firstname']"));
         ad.sendKeys("ali", Keys.ENTER);
