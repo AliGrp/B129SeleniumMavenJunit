@@ -1,14 +1,12 @@
-package day09;
+package day10;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import utilities.TestBase;
 
-public class C03_Alerts extends TestBase {
+public class C01_AlertMethods extends TestBase {
     @Test
     public void acceptAlert() throws InterruptedException {
 //        https://testcenter.techproeducation.com/index.php?page=javascript-alerts adresine gidin.
@@ -17,10 +15,8 @@ public class C03_Alerts extends TestBase {
 //        1. butona tıklayın, uyarıdaki OK butonuna tıklayın ve result mesajının  “You successfully clicked an alert” oldugunu test edin.
         driver.findElement(By.xpath("//*[text()='Click for JS Alert']")).click();
         Thread.sleep(3000);
-        driver.switchTo()//gecme degistirmek
-                .alert()//alerte gecis yapti
-                .accept();//cikan uyaarida ok veya tamam basar
-        Thread.sleep(3000);
+       bekle(3);
+       alertAccept();
         String actualText = driver.findElement(By.xpath("//*[@id='result']")).getText();
         String expectedText = "You successfully clicked an alert";
         Assert.assertEquals(expectedText,actualText);
@@ -40,10 +36,9 @@ public class C03_Alerts extends TestBase {
         driver.get("https://testcenter.techproeducation.com/index.php?page=javascript-alerts");
         //    2. butona tıklayın, uyarıdaki Cancel butonuna tıklayın ve result mesajının
         driver.findElement(By.cssSelector("button[onclick='jsConfirm()']")).click();
-        Thread.sleep(4000);
-        driver.switchTo().alert().dismiss();
-        //    “successfuly” icermedigini test edin.
-        Thread.sleep(4000);
+       bekle(3);
+        alertDismiss();
+        bekle(3);
         String actualText = driver.findElement(By.xpath("//*[@id='result']")).getText();
         String expectedText = "successfuly";
         Assert.assertFalse(actualText.contains(expectedText));
@@ -53,20 +48,20 @@ public class C03_Alerts extends TestBase {
     public void getText() {
         driver.get("https://testcenter.techproeducation.com/index.php?page=javascript-alerts");
         driver.findElement(By.xpath("//button[text()='Click for JS Prompt']")).click();
-        System.out.println(driver.switchTo().alert().getText());
+        alertText();
     }
     @Test
     public void sendKeys() throws InterruptedException {
         driver.get("https://testcenter.techproeducation.com/index.php?page=javascript-alerts");
         driver.findElement(By.xpath("//button[text()='Click for JS Prompt']")).click();
-         driver.switchTo().alert().sendKeys("Ali..");
-         Thread.sleep(3000);
-         driver.switchTo().alert().accept();
+        alertPrompt("Ali..");
+       bekle(3);
+       alertAccept();
 
-         WebElement name=driver.findElement(By.xpath("//*[@id='result']"));
-         String actualName =name.getText().split(" ")[2];
-         String expectedname = "Ali..";
-         Assert.assertTrue(actualName.contains(expectedname));
+        WebElement name=driver.findElement(By.xpath("//*[@id='result']"));
+        String actualName =name.getText().split(" ")[2];
+        String expectedname = "Ali..";
+        Assert.assertTrue(actualName.contains(expectedname));
     }
 
 
