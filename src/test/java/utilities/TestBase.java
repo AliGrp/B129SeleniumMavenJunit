@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class TestBase {
     //TestBase class'indan obje olusturmanin onune gecilmesi icin abstract yapilabilir
@@ -26,7 +28,7 @@ public abstract class TestBase {
     @After
     public void tearDown() throws Exception {
         bekle(3);
-        driver.close();
+        driver.quit();
     }
     public static void bekle(int saniye) throws InterruptedException {
 
@@ -69,6 +71,12 @@ public abstract class TestBase {
 
         Select select = new Select(ddm);
         select.selectByValue(secenek);
+    }
+    //SwitchTo: Sayfalar arasi gecis methodu/
+    //Index sifirdan baslar girilen indexteki windowHandle degerini alarak o safaya geis yapar
+    public static void switchToWindow(int sayfaIndex){
+        List<String> windowHandleList = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(windowHandleList.get(sayfaIndex));
     }
 
 }
