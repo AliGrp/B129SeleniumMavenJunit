@@ -30,7 +30,7 @@ public abstract class TestBase {
         bekle(3);
         driver.quit();
     }
-    public static void bekle(int saniye) throws InterruptedException {
+    public static void bekle(int saniye){
 
         try {
             Thread.sleep(saniye * 1000);

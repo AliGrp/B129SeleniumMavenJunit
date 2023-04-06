@@ -26,6 +26,7 @@ public class C03_Cookies extends TestBase {
        // 2-tum cookie'leri listeleyin
         Set<Cookie> cokies=driver.manage().getCookies();
         System.out.println("cokies = " + cokies);
+        cokies.forEach(t-> System.out.println(t));
 
         //3-Sayfadaki cookies sayisinin 5’den buyuk oldugunu test edin
         int cokiesSayisi=cokies.size();
