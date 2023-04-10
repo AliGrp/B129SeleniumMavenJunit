@@ -24,17 +24,14 @@ public class C02_Tekrar extends TestBase {
         driver.get("https://www.amazon.com/");
         WebElement ddm =driver.findElement(By.xpath("//select[@id='searchDropdownBox']"));
         ddmVisibleText(ddm,"Baby");
-        bekle(2);
-        Select select= new Select(ddm);
+        Select select=new Select(ddm);
         System.out.println(select.getFirstSelectedOption().getText());
-
-        List<WebElement>list= select.getOptions();
-        Assert.assertEquals(28,list.size());
 
         Assert.assertTrue(select.getOptions().size()==28);
 
-        List<WebElement> list1=select.getOptions();
-        list1.forEach(t-> System.out.println(t.getText()));
+        List<WebElement>list=select.getOptions();
+        list.forEach(t-> System.out.println(t.getText()));
+
 
 
 
