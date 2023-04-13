@@ -21,8 +21,9 @@ public abstract class TestBase {
     public void setUp() throws Exception {
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
     }
 
     @After
