@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utilities.TestBase;
 
-public class CO1_Axtions extends TestBase {
+public class CO1_Actions extends TestBase {
     /*
 "https://techproeducation.com/" gidin
 İlk kelime SHIFT tuşuna basılı şekilde, ikinci kelime basılmadan "TECHPRO education" araması yapın.
