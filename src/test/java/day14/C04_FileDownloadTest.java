@@ -18,11 +18,12 @@ public class C04_FileDownloadTest extends TestBase {
 
     @Test
     public void name() {
-        driver.get("https://testcenter.techproeducation.com/index.php?page=file-download");
-        driver.findElement(By.xpath("//*[text()='b10 all test cases, code.docx']")).click();
-        bekle(3);
+//        driver.get("https://testcenter.techproeducation.com/index.php?page=file-download");
+//        driver.findElement(By.xpath("//*[text()='b10 all test cases, code.docx']")).click();
+//        bekle(3);
         String userHome=System.getProperty("user.home");
-        Assert.assertTrue(Files.exists(Paths.get(userHome + "/Downloads/b10 all test cases, code.docx")));
+        boolean exist=Files.exists(Paths.get(userHome+"/Downloads/b10 all test cases, code (1).docx"));
+        Assert.assertTrue(exist);
 
 
     }

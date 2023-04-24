@@ -137,5 +137,41 @@ public abstract class TestBase {
         actions.sendKeys(Keys.ESCAPE).perform();
     }
 
+    //Bu method ile herhangi bir elemente JsExecute kullanarak tiklayablirim.
+    public static void clickByJS(WebElement element){
+
+        JavascriptExecutor jsExecuter=(JavascriptExecutor) driver;
+        jsExecuter.executeScript("arguments[0].click();",element);
+
+    }
+    public static void scrollByJavaSc(WebElement element){
+        JavascriptExecutor jse=(JavascriptExecutor) driver;//Casting
+        jse.executeScript("arguments[0].scrollIntoView(true);",element);
+
+    }
+
+    //sayfayi en alta kaydir
+    public static void scrollEndJS(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
+
+    //sayfayi en uste kaydir
+    public static void scrollTopJS(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+    }
+
+    //Bu method sendKeys() methodunun alternatifidir
+    public static void typeWithJs(WebElement element, String text){
+        JavascriptExecutor Js= (JavascriptExecutor) driver;
+        Js.executeScript("arguments[0].setAttribute('value','"+text+"');",element);
+    }
+
+    public static void getValueJS(String id, String attributeName){
+        JavascriptExecutor js= (JavascriptExecutor) driver;
+        String attribute_Value= (String) js.executeScript("return document.getElementById('"+id+"')."+attributeName);
+        System.out.println("Attribute Value: = " + attribute_Value);
+    }
 
 }
