@@ -144,6 +144,9 @@ public abstract class TestBase {
         jsExecuter.executeScript("arguments[0].click();",element);
 
     }
+
+
+
     public static void scrollByJavaSc(WebElement element){
         JavascriptExecutor jse=(JavascriptExecutor) driver;//Casting
         jse.executeScript("arguments[0].scrollIntoView(true);",element);
